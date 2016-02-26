@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.styl';
 import Component from 'react-pure-render/component';
 import Footer from './Footer.react';
 import Header from './Header.react';

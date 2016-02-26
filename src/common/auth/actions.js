@@ -40,10 +40,7 @@ export function login(fields) {
 }
 
 export function logout() {
-  return ({ firebase }) => {
-    firebase.unauth();
-    return {
-      type: LOGOUT
-    };
+  return {
+    type: LOGOUT
   };
 }

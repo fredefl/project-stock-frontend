@@ -1,4 +1,3 @@
-import Firebase from 'firebase';
 import appReducer from './app/reducer';
 import createFetch from './createFetch';
 import createLogger from 'redux-logger';
@@ -15,12 +14,6 @@ export default function configureStore(options) {
     platformDeps = {},
     platformMiddleware = []
   } = options;
-
-  const firebase = new Firebase('https://este.firebaseio.com');
-  // // Check whether connection works.
-  // firebase.child('hello-world').set({
-  //   createdAt: Firebase.ServerValue.TIMESTAMP
-  // });
 
   // Este dependency injection middleware. So simple that we don't need a lib.
   // It's like mixed redux-thunk and redux-inject.
@@ -41,7 +34,6 @@ export default function configureStore(options) {
     injectMiddleware({
       ...platformDeps,
       fetch: createFetch(serverUrl),
-      firebase,
       getUid: () => shortid.generate(),
       now: () => Date.now(),
       validate: validate(() => store.getState()) // eslint-disable-line no-use-before-define
