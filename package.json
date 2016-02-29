@@ -8,6 +8,7 @@
   "//": "Use gulp for dev. It's cross platform.",
   "scripts": {
     "build": "gulp build",
+    "start": "node src/server",
     "install": "gulp fix-react-native",
     "postinstall": "gulp build --production",
     "test": "gulp test"
