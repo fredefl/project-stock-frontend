@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import {TextField} from 'material-ui';
 
 class Page extends Component {
 
@@ -37,7 +38,7 @@ class Page extends Component {
             </li>
           </ul>
           {/* Note require usage for image source. Very useful for CDN. */}
-          <img alt="50x50 placeholder" src={require('./50x50.png')} />
+          <TextField hintText="Hey Professor" floatingLabelText="Hey" />
         </div>
       </div>
     );
