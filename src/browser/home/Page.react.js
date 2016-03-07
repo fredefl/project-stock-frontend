@@ -4,7 +4,8 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import {TextField} from 'material-ui';
+import {TextField, List, ListItem} from 'material-ui';
+import ContentInbox from 'material-ui/lib/svg-icons/content/inbox';
 
 class Page extends Component {
 
@@ -21,6 +22,9 @@ class Page extends Component {
         <p>
           <FormattedHTMLMessage defaultMessage={msg.infoHtml} />
         </p>
+        <List>
+          <ListItem primaryText="Inbox" leftIcon={<ContentInbox />} />
+        </List>
         <div className="tocheck">
           <h2>{msg.toCheck.h2}</h2>
           <ul>
