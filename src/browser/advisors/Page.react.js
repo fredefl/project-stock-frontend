@@ -53,9 +53,11 @@ class Page extends Component {
     return (
       <div className="home-page">
         <Helmet title={msg.title} />
-        {this.state.advisors.map(advisor =>
-          <AdvisorCard advisor={advisor} key={advisor.id} />
-        )}
+        <div className="advisors">
+          {Array(10).fill().map((x, i) =>
+            <AdvisorCard advisor={this.state.advisors[0]} key={i} />
+          )}
+        </div>
       </div>
     );
   }
