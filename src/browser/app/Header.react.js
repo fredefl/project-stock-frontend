@@ -18,10 +18,10 @@ class Header extends Component {
       <header>
         <ul>
           <li>
-            <a href="/projects">Projekter</a>
+            <Link to="projects">Projekter</Link>
           </li>
           <li>
-            <a href="/advisors">Vejledere</a>
+            <Link to="advisors">Vejledere</Link>
           </li>
         </ul>
       </header>
