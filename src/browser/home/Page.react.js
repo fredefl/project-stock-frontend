@@ -25,25 +25,6 @@ class Page extends Component {
         <List>
           <ListItem primaryText="Inbox" leftIcon={<ContentInbox />} />
         </List>
-        <div className="tocheck">
-          <h2>{msg.toCheck.h2}</h2>
-          <ul>
-            {msg.toCheck.list.map((text, i) =>
-              <li key={i}>
-                <FormattedHTMLMessage defaultMessage={text} />
-              </li>
-            )}
-            <li>
-              {msg.toCheck.isomorphicPage}{' '}
-              <Link to="/this-is-not-the-web-page-you-are-looking-for">404</Link>
-            </li>
-            <li>
-              {msg.toCheck.andMuchMore}
-            </li>
-          </ul>
-          {/* Note require usage for image source. Very useful for CDN. */}
-          <TextField hintText="Hey Professor" floatingLabelText="Hey" />
-        </div>
       </div>
     );
   }
