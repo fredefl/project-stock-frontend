@@ -41,9 +41,12 @@ class Page extends Component {
     return (
       <div className="home-page">
         <Helmet title={msg.title} />
-        {this.state.projects.map(project =>
-          <ProjectCard project={project} key={project.id} />
-        )}
+        <div className="projects">
+          {
+            Array(10).fill().map((x, i) =>
+              <ProjectCard project={this.state.projects[0]} key={i} />
+          )}
+        </div>
       </div>
     );
   }
