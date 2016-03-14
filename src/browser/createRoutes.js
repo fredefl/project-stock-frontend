@@ -2,6 +2,7 @@ import React from 'react';
 import App from './app/App.react';
 import Auth from './auth/Page.react';
 import Home from './home/Page.react';
+import Projects from './projects/Page.react';
 import { IndexRoute, Route } from 'react-router';
 
 export default function createRoutes(getState) {
@@ -18,6 +19,7 @@ export default function createRoutes(getState) {
   return (
     <Route component={App} path="/">
       <IndexRoute component={Home} />
+      <Route component={Projects} path="projects" />
       <Route component={Auth} path="login" />
     </Route>
   );
