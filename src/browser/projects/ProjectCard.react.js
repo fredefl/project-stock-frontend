@@ -47,7 +47,7 @@ class ProjectCard extends Component {
         <CardHeader
           title={project.author.name}
           subtitle={project.author.title}
-          avatar={`http://placebee.co.uk/100x100/${project.id}`}
+          avatar={`http://placebee.co.uk/100x100/${project.author.id}`}
         />
         <CardTitle
           title={project.title}
