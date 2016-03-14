@@ -7,6 +7,9 @@ import webpackIsomorphicAssets from './assets';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import ip from 'ip';
 
+import nib from 'nib';
+import rupture from 'rupture';
+
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(webpackIsomorphicAssets);
 
 // cheap-module-eval-source-map, because we want original source, but we don't
@@ -88,6 +91,9 @@ export default function makeConfig(isDevelopment) {
       filename: '[name]-[hash].js',
       chunkFilename: '[name]-[chunkhash].js',
       publicPath: '/assets/'
+    },
+    stylus: {
+      use: [nib(), rupture()]
     },
     plugins: (() => {
       const plugins = [

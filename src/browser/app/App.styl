@@ -22,3 +22,38 @@ body
   font-size 16px
   line-height 1.5
   background-color rgb(248, 248, 249)
+
+.projects
+  $cardWidth = 500px
+  $cardMargin = 20px
+  
+  $columnWidth = $cardWidth + $cardMargin * 2
+  
+  for count in (1..5)
+    +between($columnWidth*count, $columnWidth*(count + 1))
+      width $columnWidth*count
+
+  +between(0, $columnWidth)
+    width 100%
+
+  margin 30px auto 0 auto
+
+  > div
+    display inline-block
+    width $cardWidth
+    
+    +between(0, $columnWidth)
+      width 90%
+      margin $cardMargin 5%
+    
+    margin $cardMargin
+    
+  &__card
+    
+    .header, .title
+      
+      &:hover
+        cursor: pointer
+        background-color: #eee
+        -webkit-user-select: none
+        
