@@ -61,7 +61,7 @@ class ProjectCard extends Component {
           Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
           Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
         </CardText>
-        <CardActions className"actions">
+        <CardActions className="actions">
           <FlatButton label="Banan" />
         </CardActions>
       </Card>
