@@ -18,16 +18,15 @@ class Header extends Component {
       <header>
         <ul>
           <li>
-            <a href="#">Projekter</a>
+            <a href="/projects">Projekter</a>
           </li>
           <li>
-            <a href="#">Vejledere</a>
+            <a href="/supervisors">Vejledere</a>
           </li>
         </ul>
       </header>
     );
   }
-
 }
 
 export default connect(state => ({
