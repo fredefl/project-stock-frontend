@@ -21,7 +21,7 @@ class Header extends Component {
             <a href="/projects">Projekter</a>
           </li>
           <li>
-            <a href="/supervisors">Vejledere</a>
+            <a href="/advisors">Vejledere</a>
           </li>
         </ul>
       </header>

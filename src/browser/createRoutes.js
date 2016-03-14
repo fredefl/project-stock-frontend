@@ -3,7 +3,7 @@ import App from './app/App.react';
 import Auth from './auth/Page.react';
 import Home from './home/Page.react';
 import Projects from './projects/Page.react';
-import Supervisors from './supervisors/Page.react';
+import Advisors from './advisors/Page.react';
 import { IndexRoute, Route } from 'react-router';
 
 export default function createRoutes(getState) {
@@ -21,7 +21,7 @@ export default function createRoutes(getState) {
     <Route component={App} path="/">
       <IndexRoute component={Home} />
       <Route component={Projects} path="projects" />
-      <Route component={Supervisors} path="supervisors" />
+      <Route component={Advisors} path="advisors" />
       <Route component={Auth} path="login" />
     </Route>
   );
