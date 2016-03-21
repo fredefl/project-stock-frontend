@@ -59,7 +59,7 @@ class ProfileCard extends Component {
     const { msg, advisor } = this.props;
 
     return (
-      <Card className="advisor-card">
+      <Card className="profile-card">
         <div className="avatar">
           <img src={`http://placebee.co.uk/100x100/${advisor.id}`} />
         </div>
