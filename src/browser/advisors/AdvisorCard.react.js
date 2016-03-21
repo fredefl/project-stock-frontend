@@ -69,7 +69,7 @@ class AdvisorCard extends Component {
         <h1>{advisor.name}</h1>
         <h2>{advisor.title}</h2>
         <CardActions>
-          <FlatButton label="Profil" containerElement={<Link to={`profile/${advisor.id}`} />}>
+          <FlatButton label="Profil" containerElement={<Link to={`/profile/${advisor.id}`} />}>
           </FlatButton>
         </CardActions>
       </Card>
