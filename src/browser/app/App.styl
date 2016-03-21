@@ -136,3 +136,69 @@ grid(columnWidth)
         background-color: #eee
         -webkit-user-select: none
 
+.profile-page
+  margin 30px auto 0 auto
+
+  $cardWidth = 500px
+  $cardMargin = 20px
+
+  $columnWidth = $cardWidth + $cardMargin * 2
+
+  grid($columnWidth)
+
+  .profile-card, .projects-list-card, .publications-list-card
+    &:hover
+      cursor pointer
+      background-color #eee !important
+
+    width: $cardWidth
+    margin: $cardMargin
+
+    display inline-block
+
+    padding-top 25px
+
+    vertical-align top
+
+    .avatar
+      display block
+      width 110px
+      height 110px
+      margin 10px auto 10px auto
+      transform scale(1.2,1.2)
+
+      img
+        border-radius 50%
+
+    h1
+      font-size 24px
+      font-weight 400
+      text-align center
+      color #263238
+      width 100%
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      box-sizing border-box
+      padding 10px 20px 0 20px
+
+    h2
+      font-size 18px
+      color #90a4ae
+      white-space nowrap
+      display block
+      overflow hidden
+      text-overflow ellipsis
+      width 100%
+      padding 0 20px
+      text-align center
+      box-sizing border-box
+      font-weight 300
+
+      &:after
+        content ""
+        background-color #E3EBEE
+        width 70px
+        height 1px
+        margin 20px auto 0 auto
+        display block
