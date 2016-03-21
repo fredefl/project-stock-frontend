@@ -30,11 +30,17 @@ class AdvisorCard extends Component {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      phone: PropTypes.string,
+      mobile: PropTypes.string,
       email: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
       website: PropTypes.string.isRequired,
       presentation: PropTypes.string.isRequired,
       sections: PropTypes.arrayOf(PropTypes.string).isRequired,
+      address: PropTypes.arrayOf(PropTypes.string).isRequired,
+      institute: PropTypes.string,
+      busy: PropTypes.number,
+      cv: PropTypes.string,
       projects: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -46,7 +52,7 @@ class AdvisorCard extends Component {
         year: PropTypes.number.isRequired,
         href: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired
+        type: PropTypes.string.isRequired
       }))
     }).isRequired
   };
