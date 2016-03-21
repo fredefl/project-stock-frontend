@@ -34,7 +34,7 @@ class AdvisorCard extends Component {
       mobile: PropTypes.string,
       email: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      website: PropTypes.string.isRequired,
+      website: PropTypes.string,
       presentation: PropTypes.string.isRequired,
       sections: PropTypes.arrayOf(PropTypes.string).isRequired,
       address: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -69,7 +69,8 @@ class AdvisorCard extends Component {
         <h1>{advisor.name}</h1>
         <h2>{advisor.title}</h2>
         <CardActions>
-          <FlatButton label="Banan" />
+          <FlatButton label="Profil" containerElement={<Link to={`profile/${advisor.id}`} />}>
+          </FlatButton>
         </CardActions>
       </Card>
     );
