@@ -64,8 +64,34 @@ class ProfileCard extends Component {
           <img src={`http://placebee.co.uk/100x100/${advisor.id}`} />
         </div>
 
-        <h1>{advisor.name}</h1>
+        <h1>{advisor.name} <small>{advisor.busy}</small></h1>
         <h2>{advisor.title}</h2>
+
+        {(advisor.sections).forEach((section, key) =>
+          <p key={key}>{section}</p>
+        )}
+
+        <div className="more">
+          <address>
+            <h4>{advisor.institute}</h4>
+            {(advisor.address).forEach((address, key) =>
+              <p key={key}>{address}</p>
+            )}
+          </address>
+
+          <a href={`tel:${advisor.phone}`}>{advisor.phone}</a>
+          <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a>
+          <a href={`mailto:${advisor.email}`}>{advisor.email}</a>
+
+          <q>
+            {advisor.presentation}
+          </q>
+
+          <q>
+            {advisor.cv}
+          </q>
+        </div>
+
         <CardActions>
           <FlatButton label="Banan" />
         </CardActions>
