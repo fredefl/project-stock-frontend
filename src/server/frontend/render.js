@@ -112,7 +112,7 @@ export default function render(req, res, next) {
     avatar: {
       borderColor: null,
     },
-    userAgent: req.headers['user-agent'],
+    userAgent: req.headers['user-agent']
   });
 
   match({ history, routes, location }, async (error, redirectLocation, renderProps) => {
