@@ -32,7 +32,7 @@ class ProfileCard extends Component {
       mobile: PropTypes.string,
       email: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      website: PropTypes.string.isRequired,
+      website: PropTypes.string,
       presentation: PropTypes.string.isRequired,
       sections: PropTypes.arrayOf(PropTypes.string).isRequired,
       address: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -67,14 +67,14 @@ class ProfileCard extends Component {
         <h1>{advisor.name} <small>{advisor.busy}</small></h1>
         <h2>{advisor.title}</h2>
 
-        {(advisor.sections).forEach((section, key) =>
+        {(advisor.sections).map((section, key) =>
           <p key={key}>{section}</p>
         )}
 
         <div className="more">
           <address>
             <h4>{advisor.institute}</h4>
-            {(advisor.address).forEach((address, key) =>
+            {(advisor.address).map((address, key) =>
               <p key={key}>{address}</p>
             )}
           </address>
