@@ -29,36 +29,36 @@ grid(columnWidth)
   for count in (1..maxColCount)
     +between(columnWidth * count, columnWidth * (count + 1))
       width columnWidth * count
-  
+
   +below(columnWidth)
     width 100%
-    
+
   +above(columnWidth * maxColCount)
     width columnWidth * maxColCount
-  
+
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300)
 
 .advisors
   margin 30px auto 0 auto
-    
+
   $cardWidth = 300px
   $cardMargin = 20px
-  
+
   $columnWidth = $cardWidth + $cardMargin * 2
-  
-  grid($columnWidth)  
+
+  grid($columnWidth)
 
   .advisor-card
     &:hover
       cursor pointer
       background-color #eee !important
-      
+
     width: $cardWidth
     margin: $cardMargin
-    
+
     display inline-block
-    
+
     padding-top 25px
 
     .avatar
@@ -104,15 +104,15 @@ grid(columnWidth)
         margin 20px auto 0 auto
         display block
 
-
-
+.text-center
+  text-align center
 
 .projects
   $cardWidth = 500px
   $cardMargin = 20px
-  
+
   $columnWidth = $cardWidth + $cardMargin * 2
-  
+
   grid($columnWidth)
 
   margin 30px auto 0 auto
@@ -120,19 +120,19 @@ grid(columnWidth)
   > div
     display inline-block
     width $cardWidth
-    
+
     +between(0, $columnWidth)
       width 90%
       margin $cardMargin 5%
-    
+
     margin $cardMargin
-    
+
   &__card
-    
+
     .header, .title
-      
+
       &:hover
         cursor: pointer
         background-color: #eee
         -webkit-user-select: none
-        
+
