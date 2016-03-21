@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
 import Card from 'material-ui/lib/card/card';
-import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
@@ -67,34 +66,32 @@ class ProfileCard extends Component {
         <h1>{advisor.name} <small>{advisor.busy}</small></h1>
         <h2>{advisor.title}</h2>
 
-        {(advisor.sections).map((section, key) =>
-          <p key={key}>{section}</p>
-        )}
+        <div className="content">
+          {(advisor.sections).map((section, key) =>
+            <p key={key}>{section}</p>
+          )}
 
-        <div className="more">
-          <address>
-            <h4>{advisor.institute}</h4>
-            {(advisor.address).map((address, key) =>
-              <p key={key}>{address}</p>
-            )}
-          </address>
+          <div className="more">
+            <address>
+              <h4>{advisor.institute}</h4>
+              {(advisor.address).map((address, key) =>
+                <p key={key}>{address}</p>
+              )}
+            </address>
 
-          <a href={`tel:${advisor.phone}`}>{advisor.phone}</a>
-          <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a>
-          <a href={`mailto:${advisor.email}`}>{advisor.email}</a>
+            <a href={`tel:${advisor.phone}`}>{advisor.phone}</a>
+            <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a>
+            <a href={`mailto:${advisor.email}`}>{advisor.email}</a>
 
-          <q>
-            {advisor.presentation}
-          </q>
+            <q>
+              {advisor.presentation}
+            </q>
 
-          <q>
-            {advisor.cv}
-          </q>
+            <q>
+              {advisor.cv}
+            </q>
+          </div>
         </div>
-
-        <CardActions>
-          <FlatButton label="Banan" />
-        </CardActions>
       </Card>
     );
   }
