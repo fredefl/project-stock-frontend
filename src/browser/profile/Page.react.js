@@ -49,6 +49,7 @@ class Page extends Component {
           "title": "Garbage collection for reversible functional languages",
           "type": "Forskning - fagfællebedømt › Konferencebidrag i proceedings"
         }],
+        "busy": 5,
         "cv": `Sprogkundskaber
         Danish, English and a smattering of German and Romanian.
         Uddannelse
