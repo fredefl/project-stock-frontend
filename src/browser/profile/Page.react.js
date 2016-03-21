@@ -9,7 +9,7 @@ import ProjectsList from './ProjectsList.react';
 import PublicationsList from './PublicationsList.react';
 
 /* Material UI */
-import {TextField, List, ListItem} from 'material-ui';
+import {List, ListItem} from 'material-ui';
 
 class Page extends Component {
 
