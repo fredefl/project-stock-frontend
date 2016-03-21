@@ -4,6 +4,7 @@ import Auth from './auth/Page.react';
 import Home from './home/Page.react';
 import Projects from './projects/Page.react';
 import Advisors from './advisors/Page.react';
+import Profile from './profile/Page.react';
 import { IndexRoute, Route } from 'react-router';
 
 export default function createRoutes(getState) {
@@ -22,6 +23,7 @@ export default function createRoutes(getState) {
       <IndexRoute component={Home} />
       <Route component={Projects} path="projects" />
       <Route component={Advisors} path="advisors" />
+      <Route component={Profile} path="profile/:id" />
       <Route component={Auth} path="login" />
     </Route>
   );
