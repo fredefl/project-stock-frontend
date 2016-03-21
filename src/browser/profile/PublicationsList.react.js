@@ -41,7 +41,7 @@ class PublicationsList extends Component {
 
     return (
       <Card className="publications-list-card">
-        <h2 className="text-center">Projects</h2>
+        <h2 className="text-center">Publications</h2>
         <List>
           {publications.map(publication =>
             <ListItem key={publication.id} primaryText={publication.title} secondaryText={publication.type} />
