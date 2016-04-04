@@ -43,13 +43,7 @@ class ProjectCard extends Component {
 
 
     return (
-      <Card className="projects__card">
-        <CardHeader
-          className="header"
-          title={project.author.name}
-          subtitle={project.author.title}
-          avatar={`http://placebee.co.uk/100x100/${project.author.id}`}
-        />
+      <Card className="project__project__card">
         <CardTitle
           className="title"
           title={project.title}
@@ -62,7 +56,6 @@ class ProjectCard extends Component {
           Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
         </CardText>
         <CardActions className="actions">
-          <FlatButton label="Banan" containerElement={<Link to={`/project/${project.id}`} />} />
         </CardActions>
       </Card>
     );

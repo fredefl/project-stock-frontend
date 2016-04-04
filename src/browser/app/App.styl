@@ -50,9 +50,6 @@ grid(columnWidth)
   grid($columnWidth)
 
   .advisor-card
-    &:hover
-      cursor pointer
-      background-color #eee !important
 
     width: $cardWidth
     margin: $cardMargin
@@ -60,6 +57,12 @@ grid(columnWidth)
     display inline-block
 
     padding-top 25px
+
+.advisors, .project-page
+  .advisor-card, .project__author__card, .project__project__card
+    &:hover
+      cursor pointer
+      background-color #eee !important
 
     .avatar
       display block
@@ -103,6 +106,35 @@ grid(columnWidth)
         height 1px
         margin 20px auto 0 auto
         display block
+
+.project-page
+  margin 30px auto 0 auto
+
+  $cardWidth = 550px
+  $cardMargin = 20px
+
+  $columnWidth = $cardWidth + $cardMargin * 2
+
+  grid($columnWidth)
+
+  .project__author__card, .project__project__card
+    width: $cardWidth
+    margin: $cardMargin
+
+    display inline-block
+
+    padding-top 25px
+
+    vertical-align top
+
+    word-wrap break-all
+
+    max-width "calc(100vw - %s)" % ($cardMargin * 2 + 20px)
+    min-width 200px
+
+    .presentation
+      padding-left 20px
+      padding-right 20px
 
 .text-center
   text-align center

@@ -3,6 +3,7 @@ import App from './app/App.react';
 import Auth from './auth/Page.react';
 import Home from './home/Page.react';
 import Projects from './projects/Page.react';
+import Project from './project/Page.react';
 import Advisors from './advisors/Page.react';
 import Profile from './profile/Page.react';
 import { IndexRoute, Route } from 'react-router';
@@ -25,6 +26,7 @@ export default function createRoutes(getState) {
       <Route component={Advisors} path="advisors" />
       <Route component={Profile} path="profile/:id" />
       <Route component={Auth} path="login" />
+      <Route component={Project} path="project/:id" />
     </Route>
   );
 }

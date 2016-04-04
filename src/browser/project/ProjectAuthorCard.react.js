@@ -15,7 +15,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 
-class ProjectCard extends Component {
+class ProjectAuthorCard extends Component {
 
   constructor ( props ) {
     super(props);
@@ -31,7 +31,8 @@ class ProjectCard extends Component {
       author: PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        presentation: PropTypes.string
       }).isRequired,
       description: PropTypes.string.isRequired
     }).isRequired
@@ -43,26 +44,20 @@ class ProjectCard extends Component {
 
 
     return (
-      <Card className="projects__card">
-        <CardHeader
-          className="header"
-          title={project.author.name}
-          subtitle={project.author.title}
-          avatar={`http://placebee.co.uk/100x100/${project.author.id}`}
-        />
-        <CardTitle
-          className="title"
-          title={project.title}
-          subtitle={project.subtitle}
-        />
-        <CardText className="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-          Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-          Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-        </CardText>
+      <Card className="project__author__card">
+        <div className="avatar">
+          <img src={`http://placebee.co.uk/100x100/${project.author.id}`} />
+        </div>
+
+        <h1>{project.author.name}</h1>
+        <h2>{project.author.title}</h2>
+
+        <div className="presentation">
+          {project.author.presentation}
+        </div>
+
         <CardActions className="actions">
-          <FlatButton label="Banan" containerElement={<Link to={`/project/${project.id}`} />} />
+          <FlatButton label="Profil" containerElement={<Link to={`/profile/${project.author.id}`} />} />
         </CardActions>
       </Card>
     );
@@ -70,7 +65,7 @@ class ProjectCard extends Component {
 
 }
 
-ProjectCard = connect(state => ({
-}))(ProjectCard);
+ProjectAuthorCard = connect(state => ({
+}))(ProjectAuthorCard);
 
-export default ProjectCard;
+export default ProjectAuthorCard;
