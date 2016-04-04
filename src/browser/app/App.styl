@@ -107,6 +107,32 @@ grid(columnWidth)
         margin 20px auto 0 auto
         display block
 
+.home-page
+  margin 30px auto 0 auto
+
+  $cardWidth = 550px
+  $cardMargin = 20px
+
+  $columnWidth = $cardWidth + $cardMargin * 2
+
+  grid($columnWidth)
+
+  .search__card, .projects__list__card, .advisors__list__card
+    width $cardWidth
+    margin $cardMargin
+
+    vertical-align top
+
+    display inline-block
+
+    padding-top 25px
+
+  .search__card
+    padding 10px
+
+    > div > div, input
+      width 100% !important
+
 .project-page
   margin 30px auto 0 auto
 
