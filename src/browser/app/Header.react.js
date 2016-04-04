@@ -18,6 +18,9 @@ class Header extends Component {
       <header>
         <ul>
           <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
             <Link to="/projects">Projekter</Link>
           </li>
           <li>
