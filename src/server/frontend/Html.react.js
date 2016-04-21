@@ -38,6 +38,7 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');` }}
           <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
           <meta content="ie=edge" httpEquiv="x-ua-compatible" />
           <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css' />
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           {helmet.title.toComponent()}
           {helmet.base.toComponent()}
           {helmet.meta.toComponent()}
