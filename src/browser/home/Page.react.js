@@ -113,11 +113,8 @@ class Page extends Component {
         <Helmet title="Project Stock" />
 
         <Card className="search__card">
-          <TextField
-            hintText="Search for advisor or project"
-            floatingLabelText="Search"
-            type="text"
-          />
+          <i className="material-icons">search</i>
+          <input type="text" placeholder="Search"/>
         </Card>
 
         <ProjectsList projects={this.state.projects} />

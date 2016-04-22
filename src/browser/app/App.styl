@@ -116,6 +116,24 @@ grid(columnWidth)
   $columnWidth = $cardWidth + $cardMargin * 2
 
   grid($columnWidth)
+  
+  .search__card
+    padding 20px !important
+
+    i
+      color #bbb
+
+    i, input
+      display inline
+      height 20px
+      line-height 20px
+      vertical-align middle
+
+    input
+      margin-left 10px
+      appearance none
+      border none
+      outline none
 
   .search__card, .projects__list__card, .advisors__list__card
     width $cardWidth
@@ -126,12 +144,6 @@ grid(columnWidth)
     display inline-block
 
     padding-top 25px
-
-  .search__card
-    padding 10px
-
-    > div > div, input
-      width 100% !important
 
 .project-page
   margin 30px auto 0 auto
