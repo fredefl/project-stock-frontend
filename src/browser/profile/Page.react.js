@@ -4,6 +4,8 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import fetch from '../../common/components/fetch'
+import * as advisorsActions from '../../common/advisors/actions'
 import ProfileCard from './ProfileCard.react';
 import ProjectsList from './ProjectsList.react';
 import PublicationsList from './PublicationsList.react';
@@ -89,8 +91,8 @@ class Page extends Component {
 
 }
 
-Page = connect(state => ({
-  msg: state.intl.msg.home
-}))(Page);
+Page = fetch(advisorsActions.getAdvisor)(Page)
 
-export default Page;
+export default connect(state => ({
+  advisors: state.advisors
+}), { ...advisorsActions })(Page)
