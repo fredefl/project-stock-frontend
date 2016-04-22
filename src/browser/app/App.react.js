@@ -7,6 +7,9 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { onAppComponentDidMount } from '../../common/app/actions';
 
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 class App extends Component {
 
   static propTypes = {
@@ -14,6 +17,16 @@ class App extends Component {
     dispatch: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired
   };
+
+  static childContextTypes = {
+        muiTheme: PropTypes.object
+  }
+
+  getChildContext() {
+      return {
+          muiTheme: getMuiTheme(baseTheme)
+      }
+  }
 
   // Note pattern how actions related to app start are dispatched.
   // componentDidMount is not called in ReactDOMServer.renderToString, so it's

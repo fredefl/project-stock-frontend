@@ -12,10 +12,6 @@ import { Provider } from 'react-redux';
 import { createMemoryHistory, match, RouterContext } from 'react-router';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 
-import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-import themeDecorator from 'material-ui/lib/styles/theme-decorator';
-import colors from 'material-ui/lib/styles/colors';
-
 const fetchComponentDataAsync = async (dispatch, renderProps) => {
   const { components, location, params } = renderProps;
   const promises = components
@@ -59,6 +55,9 @@ const getScriptHtml = (state, headers, hostname, appJsFilename) =>
   `;
 
 const renderPage = (store, renderProps, req) => {
+  GLOBAL.navigator = {
+    userAgent: req.headers['user-agent']
+  };
   const state = store.getState();
   const { headers, hostname } = req;
   const appHtml = getAppHtml(store, renderProps);
@@ -84,6 +83,7 @@ const renderPage = (store, renderProps, req) => {
 };
 
 export default function render(req, res, next) {
+
   // Detect Heroku protocol
   const protocol = req.headers['x-forwarded-proto'] || req.protocol;
   const initialState = {
@@ -101,19 +101,6 @@ export default function render(req, res, next) {
   // Fetch and dispatch current user here because routes may need it.
   const routes = createRoutes(() => store.getState());
   const location = req.url;
-
-  const muiTheme = getMuiTheme({
-    palette: {
-      primary1Color: '#f3e5f5',
-      primary2Color: '#f3e5f5',
-      primary3Color: '#f3e5f5',
-    },
-  }, {
-    avatar: {
-      borderColor: null,
-    },
-    userAgent: req.headers['user-agent']
-  });
 
   match({ history, routes, location }, async (error, redirectLocation, renderProps) => {
     if (redirectLocation) {

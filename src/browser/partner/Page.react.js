@@ -4,30 +4,40 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import ProjectCard from './ProjectCard.react';
 
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
+import Formsy from 'formsy-react';
+import {FormsyText} from 'formsy-material-ui';
 
 class Page extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      projects : [
-        {
-          "id": 1,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi"
-          },
-          "description": '<p></p>'
-        }
-      ]
+      canSubmit: false
     }
+  }
+
+  enableButton () {
+    this.setState({
+      canSubmit: true
+    });
+  }
+
+  disableButton () {
+    this.setState({
+      canSubmit: false
+    });
+  }
+
+  submit () {
+
+  }
+
+  errorMessages : {
+    title: "The title must be words",
+    description: "The description must be words"
   }
 
   static propTypes = {
@@ -38,15 +48,7 @@ class Page extends Component {
     const { msg } = this.props;
 
     return (
-      <div className="home-page">
-        <Helmet title={msg.title} />
-        <div className="projects">
-          {
-            Array(10).fill().map((x, i) =>
-              <ProjectCard project={this.state.projects[0]} key={i} />
-          )}
-        </div>
-      </div>
+      <div></div>
     );
   }
 
