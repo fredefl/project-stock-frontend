@@ -39,7 +39,7 @@ class Page extends Component {
 
     return (
       <div className="home-page">
-        <Helmet title={msg.title} />
+        <Helmet title={"Projects"} />
         <div className="projects">
           {
             Array(10).fill().map((x, i) =>
