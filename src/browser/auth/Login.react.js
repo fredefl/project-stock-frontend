@@ -1,4 +1,3 @@
-import './Login.scss';
 import * as authActions from '../../common/auth/actions';
 import Component from 'react-pure-render/component';
 import React, { PropTypes } from 'react';
