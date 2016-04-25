@@ -15,18 +15,28 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      canSubmit: false
+      canSubmit: false,
+      authors: [],
+      title: "",
+      description: ""
     }
 
     this.enableButton = this.enableButton.bind(this);
     this.disableButton = this.disableButton.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   errorMessages = {
     titleError: "The title must be words",
     descriptionError: "The description must be words"
   };
+
+  handleChange (e) {
+    var nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
+  }
 
   enableButton () {
     this.setState({
@@ -53,7 +63,9 @@ class Page extends Component {
     let {titleError, descriptionError} = this.errorMessages;
 
     return (
-      <div className="partner-page">
+      <div className="create-project-page">
+        <Helmet title={"Project Create"} />
+
         <Paper style={{marginTop: "30px", padding: "30px"}}>
           <h1>Create Project</h1>
 
@@ -65,6 +77,8 @@ class Page extends Component {
              required
              hintText="Title text"
              floatingLabelText="Title"
+             onChange={this.handleChange}
+             value={this.state.title}
              className="input-div" />
             <FormsyText
              name="description"
@@ -73,6 +87,8 @@ class Page extends Component {
              hintText="Description text"
              floatingLabelText="Description"
              required
+             onChange={this.handleChange}
+             value={this.state.description}
              className="input-div" />
             <FormsyText
              name="author"
