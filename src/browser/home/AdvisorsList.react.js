@@ -32,7 +32,7 @@ class AdvisorsList extends Component {
         <h2 className="text-center">Advisors</h2>
         <List>
           {advisors.map(advisor =>
-            <ListItem key={advisor.id} primaryText={advisor.name} secondaryText={advisor.title} />
+            <ListItem key={advisor.id} primaryText={advisor.name} secondaryText={advisor.title} containerElement={<Link to={"/profile/" + advisor.id} />} />
           )}
         </List>
       </Card>
