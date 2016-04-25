@@ -36,7 +36,7 @@ class ProjectsList extends Component {
         <h2 className="text-center">Projects</h2>
         <List>
           {projects.map(project =>
-            <ListItem key={project.id} primaryText={project.title} secondaryText={project.author.name} />
+            <ListItem key={project.id} primaryText={project.title} secondaryText={project.author.name} containerElement={<Link to={"/project/" + project.id} />} />
           )}
         </List>
       </Card>
