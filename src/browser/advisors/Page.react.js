@@ -8,7 +8,6 @@ import AdvisorCard from './AdvisorCard.react';
 
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
-import ContentInbox from 'material-ui/lib/svg-icons/content/inbox';
 
 class Page extends Component {
 
@@ -52,7 +51,7 @@ class Page extends Component {
 
     return (
       <div className="home-page">
-        <Helmet title={msg.title} />
+        <Helmet title={"Advisors"} />
         <div className="advisors">
           {Array(10).fill().map((x, i) =>
             <AdvisorCard advisor={this.state.advisors[0]} key={i} />

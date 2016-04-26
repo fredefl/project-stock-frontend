@@ -8,7 +8,6 @@ import ProjectCard from './ProjectCard.react';
 
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
-import ContentInbox from 'material-ui/lib/svg-icons/content/inbox';
 
 class Page extends Component {
 
@@ -40,7 +39,7 @@ class Page extends Component {
 
     return (
       <div className="home-page">
-        <Helmet title={msg.title} />
+        <Helmet title={"Projects"} />
         <div className="projects">
           {
             Array(10).fill().map((x, i) =>

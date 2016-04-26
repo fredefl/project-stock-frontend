@@ -1,6 +1,6 @@
 // Remember to use rems and ems. http://css-tricks.com/rems-ems.
 
-@import '~normalize.css/normalize.css'
+//@import '~normalize.css/normalize.css'
 
 // http://phonegap-tips.com/articles/essential-phonegap-css-webkit-tap-highlight-color.html
 *
@@ -22,6 +22,8 @@ body
   font-size 16px
   line-height 1.5
   background-color rgb(248, 248, 249)
+
+  margin 0
 
 grid(columnWidth)
   maxColCount = 5
@@ -116,7 +118,7 @@ grid(columnWidth)
   $columnWidth = $cardWidth + $cardMargin * 2
 
   grid($columnWidth)
-  
+
   .search__card
     padding 20px !important
 
@@ -280,3 +282,35 @@ grid(columnWidth)
         height 1px
         margin 20px auto 0 auto
         display block
+
+.create-project-page, .login-email-page
+  width 30%
+  margin 0 auto
+
+  p.page-help-text
+    margin-right 15px
+    margin-left 15px
+
+  h1
+    text-align center
+
+  form
+    width 100%
+
+    .input-div, .button-div
+      margin 15px
+      margin-top 0px
+      width "calc(100% - %s)" % (30px) !important
+
+      input
+        height 70% !important
+        padding-top 15px !important
+
+header
+  ul.right
+    float right
+    margin-right 20px
+
+  ul.left
+    float left
+    margin-left 20px

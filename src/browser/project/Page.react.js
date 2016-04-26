@@ -10,7 +10,6 @@ import ProjectCard from './ProjectCard.react';
 
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
-import ContentInbox from 'material-ui/lib/svg-icons/content/inbox';
 
 class Page extends Component {
 

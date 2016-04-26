@@ -78,7 +78,7 @@ class Page extends Component {
 
     return (
       <div className="profile-page">
-        <Helmet title={msg.title} />
+        <Helmet title={"Profile - " + this.state.advisor.name} />
 
         <ProfileCard advisor={this.state.advisor} key={this.state.advisor.id} />
 
