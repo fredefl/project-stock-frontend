@@ -18,7 +18,8 @@ class Page extends Component {
       canSubmit: false,
       authors: [],
       title: "",
-      description: ""
+      description: "",
+      shortDescription: ""
     }
 
     this.enableButton = this.enableButton.bind(this);
@@ -29,7 +30,8 @@ class Page extends Component {
 
   errorMessages = {
     titleError: "The title must be words",
-    descriptionError: "The description must be words"
+    descriptionError: "The description must be words",
+    shortDescription: "The short description"
   };
 
   handleChange (e) {
@@ -60,7 +62,7 @@ class Page extends Component {
 
   render() {
     const { msg } = this.props;
-    let {titleError, descriptionError} = this.errorMessages;
+    let {titleError, descriptionError, shortDescriptionError} = this.errorMessages;
 
     return (
       <div className="create-project-page">
@@ -89,6 +91,16 @@ class Page extends Component {
              required
              onChange={this.handleChange}
              value={this.state.description}
+             className="input-div" />
+            <FormsyText
+             name="shortDescription"
+             validations="isWords"
+             validationError={shortDescriptionError}
+             hintText="Short description text"
+             floatingLabelText="Short description"
+             required
+             onChange={this.handleChange}
+             value={this.state.shortDescription}
              className="input-div" />
             <FormsyText
              name="author"
