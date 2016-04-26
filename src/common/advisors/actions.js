@@ -8,7 +8,7 @@ export const getAdvisor = (options) =>
       filter: { }
     }),
     url: (apiUrl, options) =>
-      `${apiUrl}/advisor/${options.get('id')}}`,
+      `${apiUrl}/advisor/${options.get('id')}`,
     skip: (state, options) =>
       state.advisors.get('advisors').get(options.get('id'))
   })
@@ -18,12 +18,12 @@ export const getAdvisors = (options) =>
     name: 'ADVISORS',
     defaults: fromJS({
       filter: {
-        limit: 4,
+        limit: 8,
         offset: 1
       }
     }),
     url: (apiUrl, options) =>
-      `${apiUrl}/good?filter=${JSON.stringify(options.get('filter'))}`,
+      `${apiUrl}/advisors/`, // ?filter=${JSON.stringify(options.get('filter'))}
     modify: (data, options) => (
       { data, offset: options.get('filter').get('offset') + options.get('filter').get('limit') }
     )

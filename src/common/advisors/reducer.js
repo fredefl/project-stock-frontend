@@ -1,5 +1,5 @@
 import { createMap } from '../lib/utils'
-import { Map, Record } from 'immutable'
+import { Map, Record, fromJS } from 'immutable'
 
 const InitialState = Record({
   loading: false,
@@ -29,7 +29,7 @@ export default function advisorReducer(state = initialState, action) {
 
     case 'GET_ADVISORS_SUCCESS':
       return state
-        .update('advisors', map => map.merge(createMap(action.payload.data)))
+        .update('advisors', map => map.merge(Map(action.payload.data)))
         .set('loading', false)
         .set('offset', action.payload.offset)
 

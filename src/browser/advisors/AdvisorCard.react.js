@@ -56,7 +56,7 @@ class AdvisorCard extends Component {
     return (
       <Card className="advisor-card">
         <div className="avatar">
-          <img src={`http://placebee.co.uk/100x100/${advisor.id}`} />
+          <img width="110" height="110" src={`${advisor.imageUrl}`} />
         </div>
 
         <h1>{advisor.name}</h1>

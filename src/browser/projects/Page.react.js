@@ -38,7 +38,7 @@ class Page extends Component {
     const { msg } = this.props;
 
     return (
-      <div className="home-page">
+      <div>
         <Helmet title={"Projects"} />
         <div className="projects">
           {

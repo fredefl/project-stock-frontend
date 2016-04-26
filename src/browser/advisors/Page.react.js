@@ -4,6 +4,8 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import fetch from '../../common/components/fetch'
+import * as advisorsActions from '../../common/advisors/actions'
 import AdvisorCard from './AdvisorCard.react';
 
 /* Material UI */
@@ -13,33 +15,6 @@ class Page extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      advisors : [
-        {
-          "id": 1,
-          "name": "Stephen Alstrup",
-          "title": "Professor i Datalogi",
-          "phone": "+45 35 33 56 91",
-          "email": "s.alstrup@di.ku.dk",
-          "website": "https://sites.google.com/site/stephenalstrupsite/",
-          "presentation": "",
-          "sections": ["The APL Section"],
-          "projects": [{
-            "id": 1,
-            "title": "sdkosdlsdklsdld",
-            "subtitle": "kjsldssdskjd",
-            "description": "jsdksjdskd"
-          }],
-          "publications": [{
-            "id": 1,
-            "year": 2016,
-            "href": "http://diku.dk/Ansatte/?pure=da%2Fpublications%2Fsimpler-faster-and-shorter-labels-for-distances-in-graphs(90a385f4-4892-414d-a47f-ddb99f2f2155).html",
-            "title": "Simpler, faster and shorter labels for distances in graphs",
-            "category": "Forskning - fagfællebedømt › Paper"
-          }]
-        }
-      ]
-    }
   }
 
   static propTypes = {
@@ -49,12 +24,18 @@ class Page extends Component {
   render() {
     const { msg } = this.props;
 
+    const { advisors, loading } = this.props.advisors;
+
+    if (!advisors)
+      return <div>No advisors found</div>
+
     return (
-      <div className="home-page">
+      <div>
         <Helmet title={"Advisors"} />
         <div className="advisors">
-          {Array(10).fill().map((x, i) =>
-            <AdvisorCard advisor={this.state.advisors[0]} key={i} />
+          {advisors.map(advisor => {
+            return <AdvisorCard advisor={advisor} key={advisor.id} />
+          }
           )}
         </div>
       </div>
@@ -63,8 +44,8 @@ class Page extends Component {
 
 }
 
-Page = connect(state => ({
-  msg: state.intl.msg.home
-}))(Page);
+Page = fetch(advisorsActions.getAdvisors)(Page)
 
-export default Page;
+export default connect(state => ({
+  advisors: state.advisors
+}), { ...advisorsActions })(Page)

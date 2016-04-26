@@ -6,7 +6,7 @@ const createMap = (input) => input.reduce((things, thing) =>
 
 const apiUrl = process.env.API_URL || (process.env.NODE_ENV === 'production'
   ? 'http://api.diku.trade'
-  : 'http://localhost:8081'
+  : 'http://localhost:8080'
 )
 
 const createAction = (options, { defaults, name, skip = () => false, url, method = 'GET', data = {}, modify }) => {
