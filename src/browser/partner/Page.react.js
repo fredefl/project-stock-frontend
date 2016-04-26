@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 /* Material UI */
 import {TextField, List, ListItem, RaisedButton, Paper} from 'material-ui';
-import Formsy from 'formsy-react';
+import {Form} from 'formsy-react';
 import {FormsyText} from 'formsy-material-ui';
 
 class Page extends Component {
@@ -69,7 +69,7 @@ class Page extends Component {
         <Paper style={{marginTop: "30px", padding: "30px"}}>
           <h1>Create Project</h1>
 
-          <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+          <Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
             <FormsyText
              name="title"
              validations="isWords"
@@ -98,7 +98,7 @@ class Page extends Component {
              required
              className="input-div" />
             <RaisedButton label="Save" primary={true} disabled={!this.state.canSubmit} className="button-div" />
-          </Formsy.Form>
+          </Form>
         </Paper>
       </div>
     );
