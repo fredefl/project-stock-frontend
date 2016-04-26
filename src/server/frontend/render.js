@@ -28,7 +28,7 @@ const fetchComponentDataAsync = async (dispatch, renderProps) => {
     .map(action =>
       // Server side fetching can use only router location and params props.
       // There is no easy way how to support custom component props.
-      dispatch(action({ location, params })).payload.promise
+      dispatch(action({ location, params })).payload
     );
   await Promise.all(promises);
 };
