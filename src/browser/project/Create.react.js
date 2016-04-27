@@ -61,15 +61,21 @@ class Page extends Component {
   };
 
   render() {
-    const { msg } = this.props;
-    let {titleError, descriptionError, shortDescriptionError} = this.errorMessages;
+    const { msg, params: {id} } = this.props;
+    let { titleError, descriptionError, shortDescriptionError } = this.errorMessages;
+
+    var pageTitle = "Create Project";
+
+    if ( typeof id != "undefined" ) {
+      pageTitle = "Edit Project"
+    }
 
     return (
       <div className="create-project-page">
         <Helmet title={"Project Create"} />
 
         <Paper style={{marginTop: "30px", padding: "30px"}}>
-          <h1>Create Project</h1>
+          <h1>{pageTitle}</h1>
 
           <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
             <FormsyText
