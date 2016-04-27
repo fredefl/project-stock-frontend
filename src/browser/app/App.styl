@@ -41,6 +41,25 @@ grid(columnWidth)
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300)
 
+.sections
+  margin 30px auto 0 auto
+
+  $cardWidth = 400px
+  $cardMargin = 20px
+
+  $columnWidth = $cardWidth + $cardMargin * 2
+
+  grid($columnWidth)
+
+  .section__card
+
+    width: $cardWidth
+    margin: $cardMargin
+
+    display inline-block
+
+    padding-top 25px
+
 .advisors
   margin 30px auto 0 auto
 
@@ -60,8 +79,8 @@ grid(columnWidth)
 
     padding-top 25px
 
-.advisors, .project-page
-  .advisor-card, .project__author__card, .project__project__card
+.advisors, .project-page, .sections
+  .advisor-card, .project__author__card, .project__project__card, .section__card
     &:hover
       cursor pointer
       background-color #eee !important
