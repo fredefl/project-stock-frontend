@@ -11,7 +11,7 @@ import { replace } from 'react-router-redux';
 
 /* Material UI */
 import {TextField, List, ListItem, RaisedButton, Paper} from 'material-ui';
-import Formsy from 'formsy-react';
+import {Form} from 'formsy-react';
 import {FormsyText} from 'formsy-material-ui';
 
 class LoginEmail extends Component {
@@ -70,7 +70,7 @@ class LoginEmail extends Component {
             that link will log you into the system.
           </p>
 
-          <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+          <Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
             <FormsyText
              name="title"
              validations="isEmail"
@@ -80,7 +80,7 @@ class LoginEmail extends Component {
              floatingLabelText="Email"
              className="input-div" />
             <RaisedButton label="Login" primary={true} disabled={!this.state.canSubmit} className="button-div" />
-          </Formsy.Form>
+          </Form>
         </Paper>
       </div>
     );

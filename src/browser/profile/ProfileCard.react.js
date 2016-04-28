@@ -54,35 +54,31 @@ class ProfileCard extends Component {
     return (
       <Card className="profile-card">
         <div className="avatar">
-          <img src={`http://placebee.co.uk/100x100/${advisor.id}`} />
+          <img width="110" height="110" src={`${advisor.imageUrl}`} />
         </div>
 
-        <h1>{advisor.name} <small>{advisor.busy}</small></h1>
-        <h2>{advisor.title}</h2>
+        <h1>{advisor.name} <small>{advisor.busyLevel}</small></h1>
+        <h2>{advisor.jobtype}</h2>
 
         <div className="content">
-          {(advisor.sections).map((section, key) =>
+          {/*(advisor.sections).map((section, key) =>
             <p key={key}>{section}</p>
-          )}
+          )*/}
 
           <div className="more">
             <address>
               <h4>{advisor.institute}</h4>
-              {(advisor.address).map((address, key) =>
-                <p key={key}>{address}</p>
-              )}
+              <p>{advisor.address}</p>
+              <p>{advisor.address2}</p>
             </address>
 
-            <a href={`tel:${advisor.phone}`}>{advisor.phone}</a>
+            <a href={`tel:${advisor.telephone}`}>{advisor.telephone}</a>
             <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a>
             <a href={`mailto:${advisor.email}`}>{advisor.email}</a>
+            <a href={`${advisor.website}`}>{advisor.website}</a>
 
             <q>
-              {advisor.presentation}
-            </q>
-
-            <q>
-              {advisor.cv}
+              {advisor.description}
             </q>
           </div>
         </div>

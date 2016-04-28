@@ -7,6 +7,7 @@ import device from '../device/reducer';
 import intl from '../intl/reducer';
 import ui from '../ui/reducer';
 import users from '../users/reducer';
+import advisors from '../advisors/reducer';
 
 const appReducer = combineReducers({
   auth,
@@ -15,7 +16,8 @@ const appReducer = combineReducers({
   reduxFields,
   routing,
   ui,
-  users
+  users,
+  advisors
 });
 
 export default appReducer;
