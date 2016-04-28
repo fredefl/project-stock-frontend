@@ -18,7 +18,8 @@ class Page extends Component {
       canSubmit: false,
       authors: [],
       title: "",
-      description: ""
+      description: "",
+      shortDescription: ""
     }
 
     this.enableButton = this.enableButton.bind(this);
@@ -29,7 +30,8 @@ class Page extends Component {
 
   errorMessages = {
     titleError: "The title must be words",
-    descriptionError: "The description must be words"
+    descriptionError: "The description must be words",
+    shortDescription: "The short description"
   };
 
   handleChange (e) {
@@ -59,15 +61,21 @@ class Page extends Component {
   };
 
   render() {
-    const { msg } = this.props;
-    let {titleError, descriptionError} = this.errorMessages;
+    const { msg, params: {id} } = this.props;
+    let { titleError, descriptionError, shortDescriptionError } = this.errorMessages;
+
+    var pageTitle = "Create Project";
+
+    if ( typeof id != "undefined" ) {
+      pageTitle = "Edit Project"
+    }
 
     return (
       <div className="create-project-page">
         <Helmet title={"Project Create"} />
 
         <Paper style={{marginTop: "30px", padding: "30px"}}>
-          <h1>Create Project</h1>
+          <h1>{pageTitle}</h1>
 
           <Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
             <FormsyText
@@ -89,6 +97,16 @@ class Page extends Component {
              required
              onChange={this.handleChange}
              value={this.state.description}
+             className="input-div" />
+            <FormsyText
+             name="shortDescription"
+             validations="isWords"
+             validationError={shortDescriptionError}
+             hintText="Short description text"
+             floatingLabelText="Short description"
+             required
+             onChange={this.handleChange}
+             value={this.state.shortDescription}
              className="input-div" />
             <FormsyText
              name="author"
