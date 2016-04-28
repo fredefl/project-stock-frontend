@@ -38,7 +38,8 @@ class Page extends Component {
           {
             this.state.sections.map(section =>
               <SectionCard section={section} key={section.id} />
-          )}
+            )
+          }
         </div>
       </div>
     );
