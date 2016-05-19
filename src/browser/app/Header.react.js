@@ -21,13 +21,22 @@ class Header extends Component {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/projects">Projekter</Link>
+            <Link to="/projects">Projects</Link>
           </li>
           <li>
-            <Link to="/advisors">Vejledere</Link>
+            <Link to="/advisors">Advisors</Link>
+          </li>
+          <li>
+            <Link to="/sections">Sections</Link>
           </li>
         </ul>
         <ul className="right">
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
+          <li>
+            <Link to="/user">User</Link>
+          </li>
           <li style={{float: "right"}}>
             <Link to="/login/email">Login</Link>
           </li>

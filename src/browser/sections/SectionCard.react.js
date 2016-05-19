@@ -20,7 +20,8 @@ class SectionCard extends Component {
     section: PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired
+      image: PropTypes.string.isRequired,
+      description: PropTypes.string
     }).isRequired
   };
 
@@ -31,11 +32,12 @@ class SectionCard extends Component {
 
     return (
       <Card className="section__card">
-        <div className="avatar">
-          <img width="100" height="100" src={section.image} />
+        <div className="avatar" style={{"display": "inline"}}>
+          <img width="400" height="130" src={section.image} />
         </div>
 
         <h1>{section.title}</h1>
+        <h2>{section.description}</h2>
         <CardActions>
           <FlatButton label="Section" containerElement={<Link to={`/section/${section.id}`} />} />
           <FlatButton label="Subscribe" containerElement={<a></a>} />

@@ -18,7 +18,20 @@ class Page extends Component {
         {
           "id": 1,
           "image": "http://www.diku.dk/forskning/hcc/grafik/top-hcc.jpg?size=505x174",
-          "title": "HCC"
+          "title": "HCC",
+          "description": "Human-Centred Computing"
+        },
+        {
+          "id": 2,
+          "image": "http://www.diku.dk/forskning/apl-gruppen/grafik/top-apl.jpg?size=505x174",
+          "title": "APL",
+          "description": "Algorithms and Programmring Languages"
+        },
+        {
+          "id": 3,
+          "image": "http://www.diku.dk/forskning/imagesection/grafik/top-image.jpg?size=505x174",
+          "title": "Image",
+          "description": "Image Section"
         }
       ]
     }
