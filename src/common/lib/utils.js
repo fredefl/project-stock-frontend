@@ -41,7 +41,7 @@ const createAction = (options, { defaults, name, skip = () => false, url, method
     }
 
     return {
-      type: `GET_${name}`,
+      type: `${method}_${name}`,
       payload: {
         promise: getPromise()
       }
