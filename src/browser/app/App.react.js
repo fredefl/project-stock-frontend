@@ -12,6 +12,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
 
+  constructor() {
+    super();
+  }
+
   static propTypes = {
     children: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
@@ -26,6 +30,16 @@ class App extends Component {
       return {
           muiTheme: getMuiTheme(baseTheme)
       }
+  }
+
+  content() {
+    const { dispatch, children } = this.props;
+
+    return React.Children.map(children, child =>
+      React.cloneElement(child, {
+        dispatch
+      })
+    );
   }
 
   // Note pattern how actions related to app start are dispatched.
@@ -54,7 +68,9 @@ class App extends Component {
         />
         {/* Pass location to ensure header active links are updated. */}
         <Header location={location} />
-          {children}
+
+        {this.content()}
+
         <Footer />
       </div>
     );
