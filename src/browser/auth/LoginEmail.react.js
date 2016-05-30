@@ -4,7 +4,8 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import * as authActions from '../../common/auth/actions';
+import fetch from '../../common/components/fetch'
+import * as loginActions from '../../common/login/actions';
 import focusInvalidField from '../lib/focusInvalidField';
 import { fields } from '../../common/lib/redux-fields';
 import { replace } from 'react-router-redux';
@@ -17,11 +18,8 @@ import {FormsyText} from 'formsy-material-ui';
 class LoginEmail extends Component {
 
   static propTypes = {
-    auth: PropTypes.object.isRequired,
     fields: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    login: PropTypes.func.isRequired,
-    msg: PropTypes.object.isRequired,
     replace: PropTypes.func.isRequired
   };
 
@@ -52,8 +50,10 @@ class LoginEmail extends Component {
     });
   }
 
-  submit () {
-
+  submit ( data ) {
+    const { dispatch } = this.props;
+    console.log(data);
+    dispatch(loginActions.login(data, data));
   }
 
   render() {
@@ -72,14 +72,16 @@ class LoginEmail extends Component {
 
           <Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
             <FormsyText
-             name="title"
+             name="email"
              validations="isEmail"
              validationError={emailError}
              required
              hintText="Email"
              floatingLabelText="Email"
-             className="input-div" />
-            <RaisedButton label="Login" primary={true} disabled={!this.state.canSubmit} className="button-div" />
+             className="input-div"
+             {...fields.email}
+             />
+            <RaisedButton type="submit" label="Login" primary={true} disabled={!this.state.canSubmit} className="button-div" />
           </Form>
         </Paper>
       </div>
@@ -89,11 +91,10 @@ class LoginEmail extends Component {
 }
 
 LoginEmail = fields(LoginEmail, {
-  path: 'auth',
+  path: 'login',
   fields: ['email']
 });
 
 export default connect(state => ({
-  auth: state.auth,
-  msg: state.intl.msg.auth.form
-}), { ...authActions, replace })(LoginEmail);
+  login: state.login
+}), { ...loginActions, replace })(LoginEmail);
