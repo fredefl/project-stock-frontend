@@ -8,6 +8,9 @@ import { connect } from 'react-redux';
 import ProjectAuthorCard from './ProjectAuthorCard.react';
 import ProjectCard from './ProjectCard.react';
 
+import fetch from '../../common/components/fetch';
+import * as projectsActions from '../../common/projects/actions';
+
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
 
@@ -15,7 +18,7 @@ class Page extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    /*this.state = {
       project :{
           "id": 1,
           "title" : "NanoRobot Teknologi",
@@ -36,28 +39,36 @@ class Page extends Component {
           },
           "description": '<p></p>'
         }
-    }
+    }*/
   }
 
   static propTypes = {
   };
 
   render() {
-    const { } = this.props;
+    const { projects, loading } = this.props.projects;
+
+    const { id } = this.props.params;
+
+    const project = projects.get(id);
+
+    if ( ! project )
+      return <div>No project found</div>
 
     return (
       <div className="project-page">
         <Helmet title="Project" />
 
-        <ProjectCard project={this.state.project} />
-        <ProjectAuthorCard project={this.state.project} />
+        <ProjectCard project={project} />
+        <ProjectAuthorCard project={project} />
       </div>
     );
   }
 
 }
 
-Page = connect(state => ({
-}))(Page);
+Page = fetch(projectsActions.getProject)(Page)
 
-export default Page;
+export default connect(state => ({
+  projects: state.projects
+}), { ...projectsActions })(Page)
