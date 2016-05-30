@@ -4,8 +4,8 @@ import React, { PropTypes } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import fetch from '../../common/components/fetch'
-import * as advisorsActions from '../../common/advisors/actions'
+import fetch from '../../common/components/fetch';
+import * as advisorsActions from '../../common/advisors/actions';
 import AdvisorCard from './AdvisorCard.react';
 
 /* Material UI */
