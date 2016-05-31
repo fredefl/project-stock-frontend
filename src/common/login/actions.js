@@ -2,7 +2,6 @@ import { Map, fromJS } from 'immutable'
 import { createAction } from '../lib/utils'
 
 export const login = ( options, data ) => {
-  console.log(data);
   return createAction(options, {
     name: 'LOGIN',
     method: 'POST',

@@ -25,9 +25,7 @@ body
 
   margin 0
 
-grid(columnWidth)
-  maxColCount = 5
-
+grid(columnWidth, maxColCount = 5)
   for count in (1..maxColCount)
     +between(columnWidth * count, columnWidth * (count + 1))
       width columnWidth * count
@@ -49,7 +47,10 @@ grid(columnWidth)
 
   $columnWidth = $cardWidth + $cardMargin * 2
 
-  grid($columnWidth)
+  grid($columnWidth, 3)
+
+  > div
+    display inline-block
 
   .section__card
 

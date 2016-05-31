@@ -18,7 +18,7 @@ class Page extends Component {
 
   constructor(props) {
     super(props);
-    /*this.state = {
+    this.state = {
       project :{
           "id": 1,
           "title" : "NanoRobot Teknologi",
@@ -39,7 +39,7 @@ class Page extends Component {
           },
           "description": '<p></p>'
         }
-    }*/
+    }
   }
 
   static propTypes = {
@@ -49,6 +49,9 @@ class Page extends Component {
     const { projects, loading } = this.props.projects;
 
     const { id } = this.props.params;
+
+    if ( ! projects )
+      return <div>No projects found</div>
 
     const project = projects.get(id);
 

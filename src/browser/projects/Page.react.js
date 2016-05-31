@@ -15,21 +15,8 @@ class Page extends Component {
 
   constructor(props) {
     super(props);
-    /*this.state = {
-      projects : [
-        {
-          "id": 1,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi"
-          },
-          "description": '<p></p>'
-        }
-      ]
-    }*/
+    this.state = {
+    }
   }
 
   static propTypes = {

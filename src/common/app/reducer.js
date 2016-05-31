@@ -9,6 +9,7 @@ import users from '../users/reducer';
 import advisors from '../advisors/reducer';
 import login from '../login/reducer';
 import projects from '../projects/reducer';
+import sections from '../sections/reducer';
 
 const appReducer = combineReducers({
   device,
@@ -19,7 +20,8 @@ const appReducer = combineReducers({
   users,
   advisors,
   login,
-  projects
+  projects,
+  sections
 });
 
 export default appReducer;

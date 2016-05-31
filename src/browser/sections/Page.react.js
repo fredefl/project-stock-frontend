@@ -6,6 +6,9 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import SectionCard from './SectionCard.react';
 
+import fetch from '../../common/components/fetch';
+import * as sectionsActions from '../../common/sections/actions';
+
 /* Material UI */
 import {TextField, List, ListItem} from 'material-ui';
 
@@ -16,19 +19,19 @@ class Page extends Component {
     this.state = {
       sections : [
         {
-          "id": 1,
+          "id": 3,
           "image": "http://www.diku.dk/forskning/hcc/grafik/top-hcc.jpg?size=505x174",
           "title": "HCC",
           "description": "Human-Centred Computing"
         },
         {
-          "id": 2,
+          "id": 1,
           "image": "http://www.diku.dk/forskning/apl-gruppen/grafik/top-apl.jpg?size=505x174",
           "title": "APL",
           "description": "Algorithms and Programmring Languages"
         },
         {
-          "id": 3,
+          "id": 2,
           "image": "http://www.diku.dk/forskning/imagesection/grafik/top-image.jpg?size=505x174",
           "title": "Image",
           "description": "Image Section"
@@ -38,11 +41,13 @@ class Page extends Component {
   }
 
   static propTypes = {
-    msg: PropTypes.object.isRequired
   };
 
   render() {
-    const { msg } = this.props;
+    const { sections, loading } = this.props.sections;
+
+    if ( ! sections )
+      return <div>No sections found</div>
 
     return (
       <div className="section-page">
@@ -50,7 +55,7 @@ class Page extends Component {
         <div className="sections">
           {
             this.state.sections.map(section =>
-              <SectionCard section={section} key={section.id} />
+              <SectionCard section={section} key={section.id} {...this.props} />
             )
           }
         </div>
@@ -60,8 +65,8 @@ class Page extends Component {
 
 }
 
-Page = connect(state => ({
-  msg: state.intl.msg.home
-}))(Page);
+Page = fetch(sectionsActions.getSections)(Page)
 
-export default Page;
+export default connect(state => ({
+  sections: state.sections
+}), { ...sectionsActions })(Page)

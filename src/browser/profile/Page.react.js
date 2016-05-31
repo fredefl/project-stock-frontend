@@ -31,8 +31,8 @@ class Page extends Component {
     const { id } = this.props.params;
 
     const advisor = advisors.get(id);
-    
-    if (!advisor)
+
+    if ( ! advisor )
       return <div>No advisor found</div>
 
 
