@@ -7,10 +7,10 @@
 * Run the following commands:
       ```
       npm install
-      ```
+      ```,
       ```
       npm install -g gulp
-      ```
+      ```,
       ```
       gulp
       ```
