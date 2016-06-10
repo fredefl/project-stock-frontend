@@ -22,9 +22,9 @@ class ProjectsList extends Component {
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      author: PropTypes.shape({
+      advisors: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
-      }).isRequired
+      })).isRequired
     })).isRequired
   };
 
@@ -36,7 +36,7 @@ class ProjectsList extends Component {
         <h2 className="text-center">Projects</h2>
         <List>
           {projects.map(project =>
-            <ListItem key={project.id} primaryText={project.title} secondaryText={project.author.name} containerElement={<Link to={"/project/" + project.id} />} />
+            <ListItem key={project.id} primaryText={project.title} secondaryText={project.advisors[0].name} containerElement={<Link to={"/project/" + project.id} />} />
           )}
         </List>
       </Card>
