@@ -19,9 +19,6 @@ const devtools = 'cheap-module-eval-source-map';
 
 const loaders = {
   css: '',
-  less: '!less-loader',
-  scss: '!sass-loader',
-  sass: '!sass-loader?indentedSyntax',
   styl: '!stylus-loader'
 };
 

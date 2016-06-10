@@ -11,7 +11,7 @@ const config = {
   googleAnalyticsId: 'UA-XXXXXXX-X',
   isProduction,
   port: process.env.PORT || 8000,
-  webpackStylesExtensions: ['css', 'less', 'sass', 'scss', 'styl']
+  webpackStylesExtensions: ['css', 'styl']
 };
 
 // Use above config as a default one. Multiple other providers are available
