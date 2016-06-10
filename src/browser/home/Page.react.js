@@ -5,6 +5,10 @@ import { FormattedHTMLMessage } from 'react-intl';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import fetch from '../../common/components/fetch';
+import * as advisorsActions from '../../common/advisors/actions';
+import * as projectsActions from '../../common/projects/actions';
+
 import ProjectsList from './ProjectsList.react';
 import AdvisorsList from './AdvisorsList.react';
 
@@ -16,89 +20,6 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects : [
-        {
-          "id": 1,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi"
-          },
-          "description": '<p></p>'
-        },
-        {
-          "id": 2,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi"
-          },
-          "description": '<p></p>'
-        },
-        {
-          "id": 3,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi"
-          },
-          "description": '<p></p>'
-        }
-      ],
-      advisors: [
-        {
-          "id": 1,
-          "name": "Stephen Alstrup",
-          "title": "Professor i Datalogi",
-          "phone": "+45 35 33 56 91",
-          "email": "s.alstrup@di.ku.dk",
-          "website": "https://sites.google.com/site/stephenalstrupsite/",
-          "presentation": "",
-          "sections": ["The APL Section"],
-          "projects": [{
-            "id": 1,
-            "title": "sdkosdlsdklsdld",
-            "subtitle": "kjsldssdskjd",
-            "description": "jsdksjdskd"
-          }],
-          "publications": [{
-            "id": 1,
-            "year": 2016,
-            "href": "http://diku.dk/Ansatte/?pure=da%2Fpublications%2Fsimpler-faster-and-shorter-labels-for-distances-in-graphs(90a385f4-4892-414d-a47f-ddb99f2f2155).html",
-            "title": "Simpler, faster and shorter labels for distances in graphs",
-            "category": "Forskning - fagfællebedømt › Paper"
-          }]
-        },
-        {
-          "id": 2,
-          "name": "Stephen Alstrup",
-          "title": "Professor i Datalogi",
-          "phone": "+45 35 33 56 91",
-          "email": "s.alstrup@di.ku.dk",
-          "website": "https://sites.google.com/site/stephenalstrupsite/",
-          "presentation": "",
-          "sections": ["The APL Section"],
-          "projects": [{
-            "id": 1,
-            "title": "sdkosdlsdklsdld",
-            "subtitle": "kjsldssdskjd",
-            "description": "jsdksjdskd"
-          }],
-          "publications": [{
-            "id": 1,
-            "year": 2016,
-            "href": "http://diku.dk/Ansatte/?pure=da%2Fpublications%2Fsimpler-faster-and-shorter-labels-for-distances-in-graphs(90a385f4-4892-414d-a47f-ddb99f2f2155).html",
-            "title": "Simpler, faster and shorter labels for distances in graphs",
-            "category": "Forskning - fagfællebedømt › Paper"
-          }]
-        }
-      ]
     }
   }
 
@@ -106,7 +27,8 @@ class Page extends Component {
   };
 
   render() {
-    const { msg } = this.props;
+    const { advisors } = this.props.advisors;
+    const { projects } = this.props.projects;
 
     return (
       <div className="home-page">
@@ -117,14 +39,16 @@ class Page extends Component {
           <input type="text" placeholder="Search"/>
         </Card>
 
-        <ProjectsList projects={this.state.projects} />
-        <AdvisorsList advisors={this.state.advisors} />
+        <ProjectsList projects={projects} />
+        <AdvisorsList advisors={advisors} />
       </div>
     );
   }
 }
 
-Page = connect(state => ({
-}))(Page);
+Page = fetch(advisorsActions.getAdvisors, projectsActions.getProjects)(Page)
 
-export default Page;
+export default connect(state => ({
+  advisors: state.advisors,
+  projects: state.projects
+}), { ...advisorsActions, ...projectsActions })(Page)
