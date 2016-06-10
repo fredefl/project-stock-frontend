@@ -10,7 +10,7 @@ export const getProject = (options) =>
     url: (apiUrl, options) =>
       `${apiUrl}project/${options.get('id')}`,
     skip: (state, options) =>
-      state.project.get('project').get(options.get('id'))
+      state.projects.get('project').get(options.get('id'))
   })
 
 export const getProjects = (options) =>
