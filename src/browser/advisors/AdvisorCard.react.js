@@ -30,18 +30,20 @@ class AdvisorCard extends Component {
     const { msg, advisor } = this.props;
 
     return (
-      <Card className="advisor-card">
-        <div className="avatar">
-          <img width="110" height="110" src={`${advisor.imageUrl}`} />
-        </div>
+      <Link to={`/profile/${advisor.id}`}>
+        <Card className="advisor-card">
+          <div className="avatar">
+            <img width="110" height="110" src={`${advisor.imageUrl}`} />
+          </div>
 
-        <h1>{advisor.name}</h1>
-        <h2>{advisor.jobtype}</h2>
-        <CardActions>
-          <FlatButton label="Profil" containerElement={<Link to={`/profile/${advisor.id}`} />}>
-          </FlatButton>
-        </CardActions>
-      </Card>
+          <h1>{advisor.name}</h1>
+          <h2>{advisor.jobtype}</h2>
+          <CardActions>
+            <FlatButton label="Profil" containerElement={<Link to={`/profile/${advisor.id}`} />}>
+            </FlatButton>
+          </CardActions>
+        </Card>
+      </Link>
     );
   }
 
