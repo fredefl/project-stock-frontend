@@ -57,7 +57,7 @@ class ProfileCard extends Component {
           <img width="110" height="110" src={`${advisor.imageUrl}`} />
         </div>
 
-        <h1>{advisor.name} <small>{advisor.busyLevel}</small></h1>
+        <h1>{advisor.name} <small>({advisor.busyLevel})</small></h1>
         <h2>{advisor.jobtype}</h2>
 
         <div className="content">
@@ -67,18 +67,15 @@ class ProfileCard extends Component {
 
           <div className="more">
             <address>
-              <h4>{advisor.institute}</h4>
-              <p>{advisor.address}</p>
-              <p>{advisor.address2}</p>
+              <h4>{advisor.address}</h4>
             </address>
 
-            <a href={`tel:${advisor.telephone}`}>{advisor.telephone}</a>
-            <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a>
-            <a href={`mailto:${advisor.email}`}>{advisor.email}</a>
-            <a href={`${advisor.website}`}>{advisor.website}</a>
+            <a href={`tel:${advisor.telephone}`}>{advisor.telephone}</a> <br />
+            <a href={`tel:${advisor.mobile}`}>{advisor.mobile}</a> <br />
+            <a href={`mailto:${advisor.email}`}>{advisor.email}</a> <br />
+            <a href={`${advisor.website}`}>{advisor.website}</a> <br />
 
-            <q>
-              {advisor.description}
+            <q dangerouslySetInnerHTML={advisor.description}>
             </q>
           </div>
         </div>
