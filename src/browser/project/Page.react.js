@@ -19,26 +19,6 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      project :{
-          "id": 1,
-          "title" : "NanoRobot Teknologi",
-          "subtitle": "Bachelor Project",
-          "author": {
-            "id": 1,
-            "name": "Torben Mogensen",
-            "title": "Professor i Datalogi",
-            "presentation": `Undervisnings- og vejledningsområder
-
-            Compilers, programming language technology, language design, games.
-            Aktuel forskning
-
-            Domain-specific languages, program semi-inversion.
-
-            Primære forskningsområder
-            Automatic program analysis and transformation (in particular partial evaluation and program semi-inversion), compiler technology (in particular for functional languages), domain-specific languages and occasionally algorithms, complexity, automata theory, fractals and graphics.`
-          },
-          "description": '<p></p>'
-        }
     }
   }
 

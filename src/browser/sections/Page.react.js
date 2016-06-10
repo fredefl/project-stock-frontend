@@ -54,7 +54,7 @@ class Page extends Component {
         <Helmet title={"Sections"} />
         <div className="sections">
           {
-            this.state.sections.map(section =>
+            sections.map(section =>
               <SectionCard section={section} key={section.id} {...this.props} />
             )
           }
