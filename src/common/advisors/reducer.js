@@ -56,8 +56,6 @@ export default function advisorReducer(state = initialState, action) {
     case 'GET_ADVISOR_PROJECTS_SUCCESS':
       let projects = fromJS(action.payload)
 
-      console.log(projects.first().get('advisors'))
-
       return state
         .update('advisors', map => map.map(advisor => {
 
