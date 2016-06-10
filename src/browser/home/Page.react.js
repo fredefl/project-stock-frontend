@@ -39,8 +39,8 @@ class Page extends Component {
           <input type="text" placeholder="Search"/>
         </Card>
 
-        <ProjectsList projects={projects.slice(0, 2)} />
-        <AdvisorsList advisors={advisors.slice(0, 2)} />
+        <ProjectsList projects={( projects != undefined ) ? projects.slice(0, 4) : []} />
+        <AdvisorsList advisors={( advisors != undefined ) ? advisors.slice(0, 4) : []} />
       </div>
     );
   }

@@ -20,12 +20,9 @@ class Page extends Component {
   }
 
   static propTypes = {
-    msg: PropTypes.object.isRequired
   };
 
   render() {
-    const { msg } = this.props;
-
     const { advisors, loading } = this.props.advisors;
 
     const { id } = this.props.params;
