@@ -23,7 +23,7 @@ export const getProjects = (options) =>
       }
     }),
     url: (apiUrl, options) =>
-      `${apiUrl}/projects/`, // ?filter=${JSON.stringify(options.get('filter'))}
+      `${apiUrl}projects/`, // ?filter=${JSON.stringify(options.get('filter'))}
     modify: (data, options) => (
       { data, offset: options.get('filter').get('offset') + options.get('filter').get('limit') }
     )

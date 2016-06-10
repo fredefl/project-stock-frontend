@@ -3,14 +3,14 @@ import { Map, Record, fromJS } from 'immutable'
 
 const InitialState = Record({
   loading: false,
-  advisors: Map(),
+  projects: Map(),
   offset: 1
 })
 const initialState = new InitialState
 
-const revive = ({ loading, advisors, offset }) => initialState.merge({
+const revive = ({ loading, projects, offset }) => initialState.merge({
   loading,
-  advisors: new Map(advisors),
+  projects: new Map(projects),
   offset
 })
 
@@ -18,18 +18,18 @@ export default function advisorReducer(state = initialState, action) {
   if (!(state instanceof InitialState)) return revive(state)
 
   switch (action.type) {
-    case 'GET_ADVISOR_START':
-    case 'GET_ADVISORS_START':
+    case 'GET_PROJECT_START':
+    case 'GET_PROJECTS_START':
       return state.set('loading', true)
 
-    case 'GET_ADVISOR_SUCCESS':
+    case 'GET_PROJECT_SUCCESS':
       return state
-        .update('advisors', map => map.merge(createMap([action.payload])))
+        .update('projects', map => map.merge(createMap([action.payload])))
         .set('loading', false)
 
-    case 'GET_ADVISORS_SUCCESS':
+    case 'GET_PROJECTS_SUCCESS':
       return state
-        .update('advisors', map => map.merge(Map(action.payload.data)))
+        .update('projects', map => map.merge(Map(action.payload.data)))
         .set('loading', false)
         .set('offset', action.payload.offset)
 

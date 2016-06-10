@@ -21,11 +21,11 @@ class ProjectCard extends Component {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      author: PropTypes.shape({
+      advisors: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired
-      }).isRequired,
+      })).isRequired,
       description: PropTypes.string.isRequired
     }).isRequired
   };
@@ -37,12 +37,14 @@ class ProjectCard extends Component {
 
     return (
       <Card className="projects__card">
+        <Link to={`/advisor/${project.advisors[0]}`}>
         <CardHeader
           className="header"
-          title={project.author.name}
-          subtitle={project.author.title}
-          avatar={`http://placebee.co.uk/100x100/${project.author.id}`}
+          title={project.advisors[0].name}
+          subtitle={project.advisors[0].jobtype}
+          avatar={`${project.advisors[0].imageUrl}`}
         />
+        </Link>
         <CardTitle
           className="title"
           title={project.title}
@@ -55,7 +57,7 @@ class ProjectCard extends Component {
           Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
         </CardText>
         <CardActions className="actions">
-          <FlatButton label="Banan" containerElement={<Link to={`/project/${project.id}`} />} />
+          <FlatButton label="View" containerElement={<Link to={`/project/${project.id}`} />} />
         </CardActions>
       </Card>
     );

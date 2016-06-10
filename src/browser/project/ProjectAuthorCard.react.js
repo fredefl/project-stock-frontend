@@ -21,12 +21,12 @@ class ProjectAuthorCard extends Component {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      author: PropTypes.shape({
+      advisors: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         presentation: PropTypes.string
-      }).isRequired,
+      })).isRequired,
       description: PropTypes.string.isRequired
     }).isRequired
   };
@@ -39,18 +39,18 @@ class ProjectAuthorCard extends Component {
     return (
       <Card className="project__author__card">
         <div className="avatar">
-          <img src={`http://placebee.co.uk/100x100/${project.author.id}`} />
+          <img src={`${project.advisors[0].imageUrl}`} />
         </div>
 
-        <h1>{project.author.name}</h1>
-        <h2>{project.author.title}</h2>
+        <h1>{project.advisors[0].name}</h1>
+        <h2>{project.advisors[0].title}</h2>
 
         <div className="presentation">
-          {project.author.presentation}
+          {project.advisors[0].presentation}
         </div>
 
         <CardActions className="actions">
-          <FlatButton label="Profil" containerElement={<Link to={`/profile/${project.author.id}`} />} />
+          <FlatButton label="Profil" containerElement={<Link to={`/profile/${project.advisors[0].id}`} />} />
         </CardActions>
       </Card>
     );
