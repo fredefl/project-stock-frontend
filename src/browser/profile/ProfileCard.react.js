@@ -24,7 +24,7 @@ class ProfileCard extends Component {
   };
 
   render() {
-    const { msg, advisor } = this.props;
+    const { advisor } = this.props;
 
     var busyLevels = ["", "Not busy", "Some load", "Modest load", "Pretty Loaded", "Very busy"];
 
@@ -35,12 +35,15 @@ class ProfileCard extends Component {
         </div>
 
         <h1>{advisor.name} <small>({busyLevels[advisor.busyLevel]})</small></h1>
-        <h2>{advisor.jobtype}</h2>
+        <h2>
+          {advisor.jobtype}
+
+          {advisor.section ? <small style={{marginLeft: '5px'}}>
+             ({advisor.section.title})
+          </small> : null}
+        </h2>
 
         <div className="content">
-          {/*(advisor.sections).map((section, key) =>
-            <p key={key}>{section}</p>
-          )*/}
 
           <div className="more">
             <address>

@@ -20,12 +20,9 @@ class Page extends Component {
   }
 
   static propTypes = {
-    msg: PropTypes.object.isRequired
   };
 
   render() {
-    const { msg } = this.props;
-
     const { projects, loading } = this.props.projects;
 
     if ( ! projects )

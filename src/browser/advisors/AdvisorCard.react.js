@@ -22,31 +22,7 @@ class AdvisorCard extends Component {
     advisor: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      phone: PropTypes.string,
-      mobile: PropTypes.string,
-      email: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      website: PropTypes.string,
-      presentation: PropTypes.string.isRequired,
-      sections: PropTypes.arrayOf(PropTypes.string).isRequired,
-      address: PropTypes.arrayOf(PropTypes.string).isRequired,
-      institute: PropTypes.string,
-      busy: PropTypes.number,
-      cv: PropTypes.string,
-      projects: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired
-      })).isRequired,
-      publications: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        year: PropTypes.number.isRequired,
-        href: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired
-      }))
+      jobtype: PropTypes.string.isRequired,
     }).isRequired
   };
 
@@ -60,7 +36,7 @@ class AdvisorCard extends Component {
         </div>
 
         <h1>{advisor.name}</h1>
-        <h2>{advisor.title}</h2>
+        <h2>{advisor.jobtype}</h2>
         <CardActions>
           <FlatButton label="Profil" containerElement={<Link to={`/profile/${advisor.id}`} />}>
           </FlatButton>

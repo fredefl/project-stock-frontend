@@ -23,7 +23,7 @@ class Page extends Component {
   };
 
   render() {
-    const { advisors, loading } = this.props.advisors;
+    const { advisors, loading, publications } = this.props.advisors;
 
     const { id } = this.props.params;
 
@@ -39,16 +39,16 @@ class Page extends Component {
 
         <ProfileCard advisor={advisor} key={advisor.id} />
 
-        {/*<ProjectsList projects={advisor.projects} />
+        {advisor.projects ? <ProjectsList projects={advisor.projects} /> : null}
 
-        <PublicationsList publications={advisor.publications} />*/}
+        {advisor.publications ? <PublicationsList publications={advisor.publications} /> : null}
       </div>
     );
   }
 
 }
 
-Page = fetch(advisorsActions.getAdvisor)(Page)
+Page = fetch(advisorsActions.getAdvisor, advisorsActions.getPublications, advisorsActions.getProjects)(Page)
 
 export default connect(state => ({
   advisors: state.advisors

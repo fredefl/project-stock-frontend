@@ -4,14 +4,16 @@ import { Map, Record, fromJS } from 'immutable'
 const InitialState = Record({
   loading: false,
   advisors: Map(),
-  offset: 1
+  offset: 1,
+  publications: Map()
 })
 const initialState = new InitialState
 
-const revive = ({ loading, advisors, offset }) => initialState.merge({
+const revive = ({ loading, advisors, offset, publications }) => initialState.merge({
   loading,
   advisors: new Map(advisors),
-  offset
+  offset,
+  publications: new Map(publications)
 })
 
 export default function advisorReducer(state = initialState, action) {
@@ -33,6 +35,34 @@ export default function advisorReducer(state = initialState, action) {
         .set('loading', false)
         .set('offset', action.payload.offset)
 
+    case 'GET_ADVISOR_PROJECTS_SUCCESS':
+      let projects = createMap(action.payload)
+
+      return state
+        .update('advisors', map.map(advisor => {
+          if(advisor.id == projects.get(0).advisor.id) {
+            if (!advisor.projects)
+              advisor.projects = projects
+            else
+              advisor.projects.merge(projects)
+          }
+          return advisor
+        }))
+
+    case 'GET_ADVISOR_PUBLICATIONS_SUCCESS':
+      let publications = createMap(action.payload)
+
+      return state
+        .update('advisors', map.map(advisor => {
+
+          if(advisor.id == publications.get(0).advisor.id) {
+            if (!advisor.publications)
+              advisor.publications = publications
+            else
+              advisor.publications.merge(publications)
+          }
+          return advisor
+        }))
   }
 
   return state
