@@ -17,12 +17,7 @@ class ProjectsList extends Component {
   }
 
   static propTypes = {
-    projects: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    })).isRequired
+    projects: PropTypes.any
   };
 
   render() {
@@ -33,7 +28,7 @@ class ProjectsList extends Component {
         <h2 className="text-center">Projects</h2>
         <List>
           {projects.map(project =>
-            <ListItem key={project.id} primaryText={project.title} secondaryText={project.subtitle} />
+            <ListItem key={project.get('id')} primaryText={project.get('title')} secondaryText={project.get('subtitle')} />
           )}
         </List>
       </Card>

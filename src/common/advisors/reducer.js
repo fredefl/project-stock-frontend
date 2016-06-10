@@ -35,32 +35,41 @@ export default function advisorReducer(state = initialState, action) {
         .set('loading', false)
         .set('offset', action.payload.offset)
 
-    case 'GET_ADVISOR_PROJECTS_SUCCESS':
-      let projects = createMap(action.payload)
-
-      return state
-        .update('advisors', map.map(advisor => {
-          if(advisor.id == projects.get(0).advisor.id) {
-            if (!advisor.projects)
-              advisor.projects = projects
-            else
-              advisor.projects.merge(projects)
-          }
-          return advisor
-        }))
 
     case 'GET_ADVISOR_PUBLICATIONS_SUCCESS':
-      let publications = createMap(action.payload)
+      let publications = fromJS(action.payload)
 
       return state
-        .update('advisors', map.map(advisor => {
+        .update('advisors', map => map.map(advisor => {
 
-          if(advisor.id == publications.get(0).advisor.id) {
-            if (!advisor.publications)
-              advisor.publications = publications
-            else
-              advisor.publications.merge(publications)
+          if (publications.first()) {
+            if(advisor.id == publications.first().get('advisor').get('id')) {
+              if (!advisor.publications)
+                advisor.publications = publications
+              else
+                advisor.publications.merge(publications)
+            }
           }
+
+          return advisor
+        }))
+    case 'GET_ADVISOR_PROJECTS_SUCCESS':
+      let projects = fromJS(action.payload)
+
+      console.log(projects.first().get('advisors'))
+
+      return state
+        .update('advisors', map => map.map(advisor => {
+
+          if (projects.first()) {
+            if(advisor.id == projects.first().get('advisors').get(0).get('id')) {
+              if (!advisor.projects)
+                advisor.projects = projects
+              else
+                advisor.projects.merge(projects)
+            }
+          }
+
           return advisor
         }))
   }

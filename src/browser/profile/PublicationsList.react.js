@@ -17,14 +17,7 @@ class PublicationsList extends Component {
   }
 
   static propTypes = {
-    publications: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      href: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      description: PropTypes.string
-    })).isRequired
+    publications: PropTypes.any
   };
 
   render() {
@@ -35,7 +28,7 @@ class PublicationsList extends Component {
         <h2 className="text-center">Publications</h2>
         <List>
           {publications.map(publication =>
-            <ListItem key={publication.id} primaryText={publication.title} secondaryText={publication.type} />
+            <ListItem key={publication.get('id')} primaryText={publication.get('title')} secondaryText={publication.get('publicationDate')} />
           )}
         </List>
       </Card>
