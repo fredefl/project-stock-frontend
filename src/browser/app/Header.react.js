@@ -31,12 +31,6 @@ class Header extends Component {
           </li>
         </ul>
         <ul className="right">
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-          <li>
-            <Link to="/user">User</Link>
-          </li>
           <li style={{float: "right"}}>
             <Link to="/login/email">Login</Link>
           </li>
