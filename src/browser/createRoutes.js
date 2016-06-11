@@ -36,6 +36,7 @@ export default function createRoutes(getState) {
       <Route component={Section} path="section/:id" />
       <Route component={Project} path="project/:id" />
       <Route component={LoginEmail} path="login/email" />
+      <Route component={Home} path="home" />
     </Route>
   );
 }
