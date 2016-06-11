@@ -20,11 +20,16 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      query: ""
     }
   }
 
   static propTypes = {
   };
+
+  filter = (data, property) => 
+    data.filter(e => 
+      e[property].toLowerCase().indexOf(this.state.query.toLowerCase()) > -1)
 
   render() {
     const { advisors } = this.props.advisors;
@@ -36,11 +41,11 @@ class Page extends Component {
 
         <Card className="search__card">
           <i className="material-icons">search</i>
-          <input type="text" placeholder="Search"/>
+          <input type="text" onChange={e => this.setState({query: e.target.value})} placeholder="Search"/>
         </Card>
 
-        <ProjectsList projects={(projects || []).slice(0, 4)} />
-        <AdvisorsList advisors={(advisors || []).slice(0, 4)} />
+        <ProjectsList projects={this.filter((projects || []), 'title').slice(0, 4)} />
+        <AdvisorsList advisors={this.filter((advisors || []), 'name').slice(0, 4)} />
       </div>
     );
   }
