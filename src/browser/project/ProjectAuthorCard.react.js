@@ -19,15 +19,6 @@ class ProjectAuthorCard extends Component {
   static propTypes = {
     project: PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      advisors: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        presentation: PropTypes.string
-      })).isRequired,
-      description: PropTypes.string.isRequired
     }).isRequired
   };
 
@@ -43,10 +34,10 @@ class ProjectAuthorCard extends Component {
         </div>
 
         <h1>{project.advisors[0].name}</h1>
-        <h2>{project.advisors[0].title}</h2>
+        <h2>{project.advisors[0].jobtype}</h2>
 
         <div className="presentation">
-          {project.advisors[0].presentation}
+          {project.advisors[0].description}
         </div>
 
         <CardActions className="actions">
