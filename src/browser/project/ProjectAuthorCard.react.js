@@ -39,7 +39,7 @@ class ProjectAuthorCard extends Component {
     return (
       <Card className="project__author__card">
         <div className="avatar">
-          <img src={`${project.advisors[0].imageUrl}`} />
+          <img width="105" src={`${project.advisors[0].imageUrl}`} />
         </div>
 
         <h1>{project.advisors[0].name}</h1>
