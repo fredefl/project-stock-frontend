@@ -7,12 +7,11 @@ import '../styles/Header.styl';
 class Header extends Component {
 
   static propTypes = {
-    msg: PropTypes.object.isRequired,
     viewer: PropTypes.object
   };
 
   render() {
-    const { msg, viewer } = this.props;
+    const { viewer } = this.props;
 
     return (
       <header>
@@ -41,6 +40,5 @@ class Header extends Component {
 }
 
 export default connect(state => ({
-  msg: state.intl.msg.app.links,
   viewer: state.users.viewer
 }))(Header);
