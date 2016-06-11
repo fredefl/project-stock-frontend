@@ -1,11 +1,13 @@
 {
-  "name": "Este",
+  "name": "Project-Stock",
   "authors": [
-    "Daniel Steigerwald"
+    "Bo Hans Thomsen",
+    "Frederik Fredslund Lassen",
+    "Anders Hansen",
+    "Steven Beck Christensen"
   ],
-  "description": "Dev stack and starter kit for React universal web apps",
+  "description": "Project Search Engine",
   "private": true,
-  "//": "Use gulp for dev. It's cross platform.",
   "scripts": {
     "build": "gulp build",
     "start": "node src/server",
