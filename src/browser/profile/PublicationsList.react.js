@@ -28,7 +28,7 @@ class PublicationsList extends Component {
         <h2 className="text-center">Publications</h2>
         <List>
           {publications.map(publication =>
-            <ListItem key={publication.get('id')} primaryText={publication.get('title')} secondaryText={publication.get('publicationDate')} />
+            <ListItem key={publication.get('id')} primaryText={publication.get('title')} secondaryText={publication.get('publicationDate')} containerElement={<a href={publication.get('link')} />} />
           )}
         </List>
       </Card>
