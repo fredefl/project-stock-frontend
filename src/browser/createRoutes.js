@@ -9,6 +9,7 @@ import Profile from './profile/Page.react';
 import CreateProject from './project/Create.react';
 import LoginEmail from './auth/LoginEmail.react';
 import Sections from './sections/Page.react';
+import Section from './section/Page.react';
 import { IndexRoute, Route } from 'react-router';
 
 export default function createRoutes(getState) {
@@ -32,6 +33,7 @@ export default function createRoutes(getState) {
       <Route component={CreateProject} path="project/create" />
       <Route component={CreateProject} path="project/edit/:id" />
       <Route component={Sections} path="sections" />
+      <Route component={Section} path="section/:id" />
       <Route component={Project} path="project/:id" />
       <Route component={LoginEmail} path="login/email" />
     </Route>
