@@ -17,11 +17,7 @@ class AdvisorsList extends Component {
   }
 
   static propTypes = {
-    advisors: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })).isRequired
+    advisors: PropTypes.any.isRequired
   };
 
   render() {

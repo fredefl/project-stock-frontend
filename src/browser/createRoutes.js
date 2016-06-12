@@ -13,30 +13,19 @@ import Section from './section/Page.react';
 import { IndexRoute, Route } from 'react-router';
 
 export default function createRoutes(getState) {
-  const requireAuth = (nextState, replace) => {
-    const loggedInUser = getState().users.viewer;
-    if (!loggedInUser) {
-      replace({
-        pathname: '/login',
-        state: { nextPathname: nextState.location.pathname }
-      });
-    }
-  };
-
   return (
     <Route component={App} path="/">
       <IndexRoute component={Home} />
-      <Route component={Projects} path="projects" />
-      <Route component={Advisors} path="advisors" />
-      <Route component={Profile} path="profile/:id" />
-      <Route component={Auth} path="login" />
-      <Route component={CreateProject} path="project/create" />
-      <Route component={CreateProject} path="project/edit/:id" />
-      <Route component={Sections} path="sections" />
-      <Route component={Section} path="section/:id" />
-      <Route component={Project} path="project/:id" />
-      <Route component={LoginEmail} path="login/email" />
-      <Route component={Home} path="home" />
+      <Route component={Projects} path="/projects" />
+      <Route component={Advisors} path="/advisors" />
+      <Route component={Profile} path="/profile/:id" />
+      <Route component={CreateProject} path="/project/create" />
+      <Route component={CreateProject} path="/project/edit/:id" />
+      <Route component={Sections} path="/sections" />
+      <Route component={Section} path="/section/:id" />
+      <Route component={Project} path="/project/:id" />
+      <Route component={LoginEmail} path="/login/email" />
+      <Route component={Home} path="/home" />
     </Route>
   );
 }

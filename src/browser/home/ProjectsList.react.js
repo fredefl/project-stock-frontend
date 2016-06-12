@@ -17,15 +17,7 @@ class ProjectsList extends Component {
   }
 
   static propTypes = {
-    projects: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      advisors: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired
-      })).isRequired
-    })).isRequired
+    projects: PropTypes.any
   };
 
   render() {
