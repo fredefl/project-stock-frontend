@@ -36,8 +36,7 @@ class ProjectAuthorCard extends Component {
         <h1>{project.advisors[0].name}</h1>
         <h2>{project.advisors[0].jobtype}</h2>
 
-        <div className="presentation">
-          {project.advisors[0].description}
+        <div className="presentation" dangerouslySetInnerHTML={{__html: project.advisors[0].description}}>
         </div>
 
         <CardActions className="actions">
