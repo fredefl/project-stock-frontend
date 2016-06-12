@@ -37,7 +37,7 @@ class ProjectCard extends Component {
 
     return (
       <Card className="projects__card">
-        <Link to={`/advisor/${project.advisors[0]}`}>
+        <Link to={`/advisor/${project.advisors[0].id}`}>
         <CardHeader
           className="header"
           title={project.advisors[0].name}
