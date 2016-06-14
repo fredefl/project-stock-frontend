@@ -1,3 +1,9 @@
+## Members
+ - Anders Hansen - mhj647
+ - Bo Thomsen - rcv427
+ - Frederik Lassen - vwz775
+ - Steven Beck Christensen - zhx444
+
 Project-Stock frontend, built with ReactJS and more.
 Here follows a list of all the libraries used:
 
